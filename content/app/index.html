@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <!-- using font awesome-->
+    <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- login screen-->
+    <div class="login-screen">
+    <div class="view">
+      <div class="page">
+        <div class="page-content login-screen-content">
+          <div class="login-screen-title">My App</div>
+          <form>
+            <div class="list-block">
+              <ul class="identity">
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Username</div>
+                    <div class="item-input">
+                      <input type="text" name="username" placeholder="Your username">
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Password</div>
+                    <div class="item-input">
+                      <input type="password" name="password" placeholder="Your password">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list-block login-buttons">
+              <p><a href="#" class="button sign-in">log in</a></p>
+              <p><a href="#" class="button log-in" style="display:none">back to log in</a></p>
+              <p><a href="#" class="button create-profile">sign up</a></p>
+              <p><a href="#" class="button send-sign-up" style="display:none">Create</a></p>
+              <!--<div class="list-block-label">-->
+              <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+              <!--  <p><a href="#" class="close-login-screen">Close Login Screen</a></p>-->
+              <!--</div>-->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- login screen-->
+    <div class="signup-screen">
+    <div class="view">
+      <div class="page">
+        <div class="page-content login-screen-content">
+          <div class="login-screen-title">My App</div>
+          <form>
+            <div class="list-block">
+              <ul>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Username</div>
+                    <div class="item-input">
+                      <input type="text" name="username" placeholder="Your username">
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Password</div>
+                    <div class="item-input">
+                      <input type="password" name="password" placeholder="Your password">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list-block">
+              <ul>
+                <li><a href="#" class="item-link list-button">Sign In</a></li>
+              </ul>
+              <div class="list-block-label">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p><a href="#" class="close-login-screen">Close Login Screen</a></p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>    
+    
+    
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay myContent"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay myContent"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal myContent">
+      <div class="content-block">
+        <p>Left panel content goes here</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover myContent">
+      <div class="content-block">
+        <p>Right panel content goes here</p>
+      </div>
+    </div>
+    
+    
+    <!-- Views, and they are tabs-->
+    <!-- We need to set "toolbar-through" class on it to keep space for our tab bar-->
+    <div class="views tabs toolbar-through myContent">
+      <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+      <div id="view-1" class="view view-main tab active">
+        <!-- Pages-->
+        <div class="pages">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index-1" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+              <div class="content-block-title">You Rewards Dashboard</div>
+              <div class="card">
+                <div class="card-header">Your Points</div>
+                <div class="card-content">
+                  <div class="card-content-inner point-total">400</div>
+                </div>
+                <div class="card-footer">
+                  <span>Total Points</span>
+                  <span>Your Vet name</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">Your Savings</div>
+                <div class="card-content">
+                  <div class="card-content-inner savings-total">$255.72</div>
+                </div>
+                <div class="card-footer">
+                  <span>total savings</span>
+                  <span>Your Vet name</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">Redeemable Items</div>
+                <div class="card-content">
+                  <div class="list-block media-list">
+                    <ul>
+                      <li class="item-content">
+                        <div class="item-media">
+                          <i class="fa fa-paw fa-lg"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">Nail Trim</div>
+                          </div>
+                          <div class="item-subtitle">a nail trim for your pet</div>
+                        </div>
+                      </li>
+                      <li class="item-content">
+                        <div class="item-media">
+                          <i class="fa fa-paw fa-lg"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">dental</div>
+                          </div>
+                          <div class="item-subtitle">a dental check for your pet</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span>Redeemable Items</span>
+                  <span>Your Vet name</span>
+                </div>
+              </div> 
+              <div class="card">
+                <div class="card-header">Active Deals</div>
+                <div class="card-content">
+                  <div class="list-block media-list">
+                    <ul>
+                      <li class="item-content">
+                        <div class="item-media">
+                          <i class="fa fa-paw fa-lg"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-subtitle">buy 9 bags of food</div>
+                        </div>
+                      </li>
+                      <li class="item-content">
+                        <div class="item-media">
+                          <i class="fa fa-paw fa-lg"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-subtitle">3 dental checks</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span>Active Deals</span>
+                  <span>Your Vet name</span>
+                </div>
+              </div> 
+              <div class="content-block">
+                <p>Panels: <a href="#" class="open-panel">left</a> and  
+                <a href="#" data-panel="right" class="open-panel">right</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second view (for second wrap)-->
+      <div id="view-2" class="view tab">
+        <!-- We can make with view with navigation, let's add Top Navbar-->
+        <!--<div class="navbar">-->
+        <!--  <div class="navbar-inner">-->
+        <!--    <div class="center sliding">Contact</div>-->
+        <!--  </div>-->
+        <!--</div>-->
+        <div class="pages navbar-through">
+          <div data-page="index-2" class="page">
+            <div class="page-content">
+              <div class="content-block">
+                <p>Contact your vet directly:</p>
+              </div>
+              <p><a href="tel:8602145022" class="button">Call</a></p>
+              <p><a href="mailto:walter@conformlab.com" class="button">Email</a></p>
+              <div class="content-block">
+                <p>Technical problem or question:</p>
+              </div>
+              <p><a href="mailto:walter@conformlab.com" class="button">Email Support</a></p>
+              <!--<div class="list-block">-->
+              <!--  <ul>-->
+              <!--    <li><a href="about.html" class="item-link">-->
+              <!--        <div class="item-content">-->
+              <!--          <div class="item-inner"> -->
+              <!--            <div class="item-title">About Us</div>-->
+              <!--          </div>-->
+              <!--        </div></a></li>-->
+              <!--    <li><a href="services.html" class="item-link">-->
+              <!--        <div class="item-content"> -->
+              <!--          <div class="item-inner">-->
+              <!--            <div class="item-title">Services</div>-->
+              <!--          </div>-->
+              <!--        </div></a></li>-->
+              <!--  </ul>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-3" class="view tab">
+        <div class="pages">
+          <div data-page="index-3" class="page">
+            <div class="page-content">
+              <div class="content-block-title">Another plain static view</div>
+              <div class="content-block">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
+                <p>Mauris commodo lacus at nisl lacinia, nec facilisis erat rhoncus. Sed eget pharetra nunc. Aenean vitae vehicula massa, sed sagittis ante. Quisque luctus nec velit dictum convallis. Nulla facilisi. Ut sed erat nisi. Donec non dolor massa. Mauris malesuada dolor velit, in suscipit leo consectetur vitae. Duis tempus ligula non eros pretium condimentum. Cras sed dolor odio.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="view-4" class="view tab">
+        <div class="pages">
+          <div data-page="index-4" class="page">
+            <div class="page-content">
+              <div class="content-block-title"></div>
+              <div class="card">
+                <div class="card-header">Your Settings</div>
+                <div class="card-content list-block settings-list">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-user fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">Name</div>
+                          <div class="item-input">
+                            <input type="text" placeholder="Your name">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-envelope-o fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">E-mail</div>
+                          <div class="item-input">
+                            <input type="email" placeholder="E-mail">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-paw fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">my Vet</div>
+                          <div class="item-input">
+                            <input type="text" placeholder="vet">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-external-link fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">vet URL</div>
+                          <div class="item-input">
+                            <input type="url" placeholder="URL">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-phone fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">Vet Phone</div>
+                          <div class="item-input">
+                            <input type="tel" placeholder="Phone number">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="fa fa-pencil-square-o fa-lg"></i></div>
+                        <div class="item-inner"> 
+                          <div class="item-title label">status</div>
+                          <div class="item-input">
+                            <input type="text" placeholder="Active">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="list-block settings-list">
+                <!--<ul>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-user fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">Name</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="text" placeholder="Your name">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-envelope-o fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">E-mail</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="email" placeholder="E-mail">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-paw fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">my Vet</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="text" placeholder="vet">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-external-link fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">vet URL</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="url" placeholder="URL">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-phone fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">Vet Phone</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="tel" placeholder="Phone number">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--  <li>-->
+                <!--    <div class="item-content">-->
+                <!--      <div class="item-media"><i class="fa fa-pencil-square-o fa-lg"></i></div>-->
+                <!--      <div class="item-inner"> -->
+                <!--        <div class="item-title label">status</div>-->
+                <!--        <div class="item-input">-->
+                <!--          <input type="text" placeholder="Active">-->
+                <!--        </div>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </li>-->
+                <!--</ul>-->
+              </div>
+              <div class="content-block">
+                <p>This is a summary of your profile.  For more information and to make changes, please visit
+                your vet's url in your browser.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Tabbar-->
+      <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+          <a href="#view-1" class="tab-link active"> <i class="fa fa-tachometer fa-lg"></i></a>
+          <a href="#view-4" class="tab-link"> <i class="fa fa-gear fa-lg"></i></a>
+          <a href="#view-2" class="tab-link"><i class="fa fa-envelope-o fa-lg"></i></a>
+          <a href="#" class="tab-link open-login-screen"> <i class="fa fa-sign-out fa-lg"></i></a>
+          </div>
+      </div>
+    </div>
+    <div class="splash"></div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Parse connect-->
+    <script type="text/javascript" src="js/parse.js"></script>
+    <script type="text/javascript" src="js/parseMobileConnect.js"></script>
+    <script type="text/javascript" src="js/parseUI.js"></script>
+    <script>//start everything up
+      pCon = new ParseConnect();
+      mvpUI = new MVPUI();
+      mvpUI.fnInitializeScreens();
+    </script>
+  </body>
+</html>

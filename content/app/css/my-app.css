@@ -1,0 +1,39 @@
+/*.myContent{*/
+/*    display:none;*/
+/*}*/
+.splash{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    background:#00BFFF;
+    z-index:10000;
+}
+body, .page,.navbar{
+    background:#2b3e50;
+    color:white;
+}
+.content-block-title, .content-block{
+    color:white;
+}
+.button{
+    margin:10px;
+    background:white;
+}
+.card{
+    color:rgb(153, 153, 153);
+}
+.settings-list{
+  color:#929292;
+}
+.point-total{
+    font-size:400%;
+    color:#27B5F2;
+    text-align:center;
+}
+.savings-total{
+    font-size:400%;
+    color:#1BA608;
+    text-align:center;
+}
