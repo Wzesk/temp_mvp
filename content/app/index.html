@@ -128,25 +128,30 @@
           <div data-page="index-1" class="page">
             <!-- Scrollable page content-->
             <div class="page-content">
+              <div class="logo mvpSwipeElement">
+                <a>
+        				  <img class="logo_image" src="" alt="Profile Picture">
+        			  </a>
+        			</div>
               <div class="content-block-title">You Rewards Dashboard</div>
               <div class="card">
                 <div class="card-header">Your Points</div>
                 <div class="card-content">
-                  <div class="card-content-inner point-total">400</div>
+                  <div class="card-content-inner point-total">0</div>
                 </div>
                 <div class="card-footer">
                   <span>Total Points</span>
-                  <span>Your Vet name</span>
+                  <span class="vet_name">Your Vet name</span>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header">Your Savings</div>
                 <div class="card-content">
-                  <div class="card-content-inner savings-total">$255.72</div>
+                  <div class="card-content-inner savings-total">$0.00</div>
                 </div>
                 <div class="card-footer">
                   <span>total savings</span>
-                  <span>Your Vet name</span>
+                  <span class="vet_name">Your Vet</span>
                 </div>
               </div>
               <div class="card">
@@ -181,7 +186,7 @@
                 </div>
                 <div class="card-footer">
                   <span>Redeemable Items</span>
-                  <span>Your Vet name</span>
+                  <span class="vet_name">Your Vet</span>
                 </div>
               </div> 
               <div class="card">
@@ -210,7 +215,7 @@
                 </div>
                 <div class="card-footer">
                   <span>Active Deals</span>
-                  <span>Your Vet name</span>
+                  <span class="vet_name">Your Vet</span>
                 </div>
               </div> 
               <div class="content-block">
@@ -232,6 +237,11 @@
         <div class="pages navbar-through">
           <div data-page="index-2" class="page">
             <div class="page-content">
+              <div class="logo mvpSwipeElement">
+                <a>
+        				  <img class="logo_image" src="" alt="Profile Picture">
+        			  </a>
+        			</div>
               <div class="content-block">
                 <p>Contact your vet directly:</p>
               </div>
@@ -279,6 +289,11 @@
         <div class="pages">
           <div data-page="index-4" class="page">
             <div class="page-content">
+              <div class="logo mvpSwipeElement">
+                <a>
+        				  <img class="logo_image" src="" alt="Profile Picture">
+        			  </a>
+        			</div>
               <div class="content-block-title"></div>
               <div class="card">
                 <div class="card-header">Your Settings</div>
@@ -290,7 +305,7 @@
                         <div class="item-inner"> 
                           <div class="item-title label">Name</div>
                           <div class="item-input">
-                            <input type="text" placeholder="Your name">
+                            <input class="your_name" type="text" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
@@ -301,7 +316,7 @@
                         <div class="item-inner"> 
                           <div class="item-title label">E-mail</div>
                           <div class="item-input">
-                            <input type="email" placeholder="E-mail">
+                            <input class="your_email" type="email" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
@@ -312,7 +327,7 @@
                         <div class="item-inner"> 
                           <div class="item-title label">my Vet</div>
                           <div class="item-input">
-                            <input type="text" placeholder="vet">
+                            <input class="your_vet" type="text" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
@@ -323,7 +338,7 @@
                         <div class="item-inner"> 
                           <div class="item-title label">vet URL</div>
                           <div class="item-input">
-                            <input type="url" placeholder="URL">
+                            <input class="your_vet_url" type="url" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
@@ -334,7 +349,7 @@
                         <div class="item-inner"> 
                           <div class="item-title label">Vet Phone</div>
                           <div class="item-input">
-                            <input type="tel" placeholder="Phone number">
+                            <input class="your_phone" type="tel" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
@@ -345,83 +360,13 @@
                         <div class="item-inner"> 
                           <div class="item-title label">status</div>
                           <div class="item-input">
-                            <input type="text" placeholder="Active">
+                            <input class="your_membership" type="text" placeholder="" disabled>
                           </div>
                         </div>
                       </div>
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div class="list-block settings-list">
-                <!--<ul>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-user fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">Name</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="text" placeholder="Your name">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-envelope-o fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">E-mail</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="email" placeholder="E-mail">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-paw fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">my Vet</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="text" placeholder="vet">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-external-link fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">vet URL</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="url" placeholder="URL">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-phone fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">Vet Phone</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="tel" placeholder="Phone number">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--  <li>-->
-                <!--    <div class="item-content">-->
-                <!--      <div class="item-media"><i class="fa fa-pencil-square-o fa-lg"></i></div>-->
-                <!--      <div class="item-inner"> -->
-                <!--        <div class="item-title label">status</div>-->
-                <!--        <div class="item-input">-->
-                <!--          <input type="text" placeholder="Active">-->
-                <!--        </div>-->
-                <!--      </div>-->
-                <!--    </div>-->
-                <!--  </li>-->
-                <!--</ul>-->
               </div>
               <div class="content-block">
                 <p>This is a summary of your profile.  For more information and to make changes, please visit

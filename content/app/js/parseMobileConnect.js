@@ -39,6 +39,21 @@ ParseConnect.prototype = {
             myCallback(error);
         });
     },
+    calculateSavings: function (customer,myCallback) {
+        var redemption = Parse.Object.extend("RedemptionEvent");
+        var query = new Parse.Query(redemption);
+        query.equalTo("customer",customer);
+        var savings = 0;
+        query.each(function(redemption){
+            if(redemption){
+                savings = redemption.get("originalTotal")-redemption.get("newTotal");
+            }
+        }).then(function(res){
+            myCallback(savings);
+        },function(error){
+            myCallback(error);
+        });
+    },
     /**************************************************************************************************
     user management functions
     **************************************************************************************************/

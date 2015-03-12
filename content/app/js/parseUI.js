@@ -25,35 +25,56 @@ MVPUI.prototype = {
     MVPUI.prototype.fnAddEventHandlers();
   },
   fnLoadWithLocationData: function(){
-    mvpUI.activeUser = Parse.User.current();
-    if(mvpUI.activeUser != null){
-      pCon.loadData(function(res){
-        if(res.message){
-          alert(res.message);
-        }else{
-           MVPUI.prototype.userData = res;
-           
-          //Add views
-          var view1 = MVPUI.prototype.app.addView('#view-1');
-          var view2 = MVPUI.prototype.app.addView('#view-2', {
-              // Because we use fixed-through navbar we can enable dynamic navbar
-              dynamicNavbar: true
-          });
-          var view3 = MVPUI.prototype.app.addView('#view-3');
-          var view4 = MVPUI.prototype.app.addView('#view-4');
-          var view4 = MVPUI.prototype.app.addView('#view-4');
-          
-          MVPUI.prototype.fnUpdateView();
-          $$(".splash").hide();
-        }
+    MVPUI.prototype.activeUser = Parse.User.current();
+    if(MVPUI.prototype.activeUser != null){
+      MVPUI.prototype.activeUser.fetch().then(function(theuser){
+        pCon.loadData(function(res){
+          if(res.message){
+            alert(res.message);
+          }else{
+             MVPUI.prototype.userData = res;
+             
+            //Add views
+            var view1 = MVPUI.prototype.app.addView('#view-1');
+            var view2 = MVPUI.prototype.app.addView('#view-2', {
+                // Because we use fixed-through navbar we can enable dynamic navbar
+                dynamicNavbar: true
+            });
+            var view3 = MVPUI.prototype.app.addView('#view-3');
+            var view4 = MVPUI.prototype.app.addView('#view-4');
+            var view4 = MVPUI.prototype.app.addView('#view-4');
+            
+            MVPUI.prototype.fnUpdateView();
+            $$(".splash").hide();
+          }
+        });
       });
     }else{
       MVPUI.prototype.app.loginScreen();
     }
   },
   fnUpdateView: function(){
+    pCon.calculateSavings(MVPUI.prototype.userData,MVPUI.prototype.fnSetSavings);
+    
+    $$(".vet_name").text(MVPUI.prototype.userData.get("vendor").get("name"));
     $$(".point-total").text(MVPUI.prototype.userData.get("points"));
-    $$(".savings-total").text(MVPUI.prototype.userData.get("phone"));
+    
+    
+    $$(".your_vet").val(MVPUI.prototype.userData.get("vendor").get("name"));
+    $$(".your_vet_url").val("www.mvp.vet/at/"+MVPUI.prototype.userData.get("vendor").get("name").toLowerCase().replace(" ",""));
+    $$(".your_name").val(MVPUI.prototype.userData.get("firstName")+" "+MVPUI.prototype.userData.get("lastName"));
+    $$(".your_phone").val(MVPUI.prototype.userData.get("phone"));
+    $$(".your_membership").val(MVPUI.prototype.userData.get("subscriptionStatus"));
+    $$(".your_email").val(MVPUI.prototype.activeUser.get("email"));
+    
+    $$(".logo_image").attr("src","https://i.embed.ly/1/display/resize?url="+MVPUI.prototype.userData.get("vendor").get("logo").url()+"&key=b4b59d4802eb44b487eae8132351a634&width=150&height=150");
+  },
+  fnSetSavings: function(savings){
+    if(savings.message){
+      mvpUI.app.alert(savings.message);
+    }else{
+      $$(".savings-total").text("$" + parseFloat(Math.round(savings * 100) / 100).toFixed(2));
+    }
   },
   fnGetLoginUser: function () {
     var username = "";
