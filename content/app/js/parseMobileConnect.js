@@ -32,11 +32,35 @@ ParseConnect.prototype = {
     loadData: function (myCallback) {
         var Customer = Parse.Object.extend("Customer");
         var query = new Parse.Query(Customer);
-        query.include("vendor");
+        //query.include("Vendor");
+        var customer = new Customer();
         query.get(mvpUI.activeUser.attributes.customer.id).then(function(result){
-            myCallback(result);
+            customer = result;
+            var PVend = Parse.Object.extend("PVendor");
+            var pquery = new Parse.Query(PVend);
+            pquery.equalTo("vendor",result.get("vendor").id);
+            return pquery.find();
+        }).then(function(result){
+            if(result && result.length > 0){
+                customer.pvendor = result[0];
+            }
+            myCallback(customer);
         },function(error){
             myCallback(error);
+        });
+    },
+    checkVetCode: function (code,myCallback) {
+        var PVend = Parse.Object.extend("PVendor");
+        var pquery = new Parse.Query(PVend);
+        pquery.equalTo("code",code);
+        pquery.find().then(function(result){
+            if(result && result.length > 0){
+                myCallback(result[0]);
+            }else{
+                myCallback("vet code not found");
+            }
+        },function(error){
+            myCallback("error: "+error.message);
         });
     },
     calculateSavings: function (customer,myCallback) {
@@ -58,7 +82,7 @@ ParseConnect.prototype = {
     user management functions
     **************************************************************************************************/
     addUser: function (userName, password, email, phone, type, entityID, myCallback) {
-        userName = userName.toLowerCase();
+        //userName = userName.toLowerCase();
         var UserSearch = Parse.Object.extend("User");
         var userQuery = new Parse.Query(UserSearch);
         userQuery.startsWith("username", userName);
@@ -215,7 +239,8 @@ ParseConnect.prototype = {
     /**************************************************************************************************
     customer management functions
     **************************************************************************************************/
-    addCustomer: function (firstName, lastName, address, vendorId, cardNumber,phone, email, myCallback) {
+    addCustomer: function (theUser, address, vendorId, cardNumber, myCallback) {
+        var firstName = theUser.firstName;var lastName = theUser.lastName;var phone = "";var email = theUser.email;
         //get the vendor for this customer
         var Vend = Parse.Object.extend("Vendor");
         var refVend = new Vend();
@@ -301,7 +326,7 @@ ParseConnect.prototype = {
                         ncc.save();
                     }
                     //add user profile for customer
-                    ParseConnect.prototype.addUser(firstName+lastName,"password",email,phone,"customer",newCust.id,function(user){
+                    ParseConnect.prototype.addUser(theUser.username,theUser.password,email,phone,"customer",newCust.id,function(user){
                         if(typeof user == "string"){
                             myCallback(user);
                             newCust.destroy();
@@ -316,7 +341,7 @@ ParseConnect.prototype = {
                             newCust.setACL(newACL);
                             newCust.save(null, {
                                 success: function (newCust) {
-                                    myCallback("success");//('New customer access set: ' + newCust.id);
+                                    myCallback(newCust);//('New customer access set: ' + newCust.id);
                                 },
                                 error: function (newCust, error) {
                                     myCallback('Failed to assign new user to customer, with error code: ' + error.message);

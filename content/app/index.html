@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>My App</title>
@@ -19,7 +20,7 @@
     <div class="view">
       <div class="page">
         <div class="page-content login-screen-content">
-          <div class="login-screen-title">My App</div>
+          <div class="login-screen-title">my vet perks</div>
           <form>
             <div class="list-block">
               <ul class="identity">
@@ -27,7 +28,7 @@
                   <div class="item-inner">
                     <div class="item-title label">Username</div>
                     <div class="item-input">
-                      <input type="text" name="username" placeholder="Your username">
+                      <input type="text" name="username" placeholder="">
                     </div>
                   </div>
                 </li>
@@ -35,7 +36,7 @@
                   <div class="item-inner">
                     <div class="item-title label">Password</div>
                     <div class="item-input">
-                      <input type="password" name="password" placeholder="Your password">
+                      <input type="password" name="password" placeholder="">
                     </div>
                   </div>
                 </li>
@@ -56,49 +57,7 @@
       </div>
     </div>
   </div>
-    <!-- login screen-->
-    <div class="signup-screen">
-    <div class="view">
-      <div class="page">
-        <div class="page-content login-screen-content">
-          <div class="login-screen-title">My App</div>
-          <form>
-            <div class="list-block">
-              <ul>
-                <li class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Username</div>
-                    <div class="item-input">
-                      <input type="text" name="username" placeholder="Your username">
-                    </div>
-                  </div>
-                </li>
-                <li class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Password</div>
-                    <div class="item-input">
-                      <input type="password" name="password" placeholder="Your password">
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="list-block">
-              <ul>
-                <li><a href="#" class="item-link list-button">Sign In</a></li>
-              </ul>
-              <div class="list-block-label">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p><a href="#" class="close-login-screen">Close Login Screen</a></p>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>    
-    
-    
+
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay myContent"></div>
     <!-- Panels overlay-->
@@ -141,7 +100,7 @@
                 </div>
                 <div class="card-footer">
                   <span>Total Points</span>
-                  <span class="vet_name">Your Vet name</span>
+                  <span class="vet_name">Your Vet</span>
                 </div>
               </div>
               <div class="card">
@@ -158,29 +117,7 @@
                 <div class="card-header">Redeemable Items</div>
                 <div class="card-content">
                   <div class="list-block media-list">
-                    <ul>
-                      <li class="item-content">
-                        <div class="item-media">
-                          <i class="fa fa-paw fa-lg"></i>
-                        </div>
-                        <div class="item-inner">
-                          <div class="item-title-row">
-                            <div class="item-title">Nail Trim</div>
-                          </div>
-                          <div class="item-subtitle">a nail trim for your pet</div>
-                        </div>
-                      </li>
-                      <li class="item-content">
-                        <div class="item-media">
-                          <i class="fa fa-paw fa-lg"></i>
-                        </div>
-                        <div class="item-inner">
-                          <div class="item-title-row">
-                            <div class="item-title">dental</div>
-                          </div>
-                          <div class="item-subtitle">a dental check for your pet</div>
-                        </div>
-                      </li>
+                    <ul class="free_item_list">
                     </ul>
                   </div>
                 </div>
@@ -190,26 +127,10 @@
                 </div>
               </div> 
               <div class="card">
-                <div class="card-header">Active Deals</div>
+                <div class="card-header">Count Deals</div>
                 <div class="card-content">
                   <div class="list-block media-list">
-                    <ul>
-                      <li class="item-content">
-                        <div class="item-media">
-                          <i class="fa fa-paw fa-lg"></i>
-                        </div>
-                        <div class="item-inner">
-                          <div class="item-subtitle">buy 9 bags of food</div>
-                        </div>
-                      </li>
-                      <li class="item-content">
-                        <div class="item-media">
-                          <i class="fa fa-paw fa-lg"></i>
-                        </div>
-                        <div class="item-inner">
-                          <div class="item-subtitle">3 dental checks</div>
-                        </div>
-                      </li>
+                    <ul class="count_item_list">
                     </ul>
                   </div>
                 </div>
@@ -218,10 +139,10 @@
                   <span class="vet_name">Your Vet</span>
                 </div>
               </div> 
-              <div class="content-block">
-                <p>Panels: <a href="#" class="open-panel">left</a> and  
-                <a href="#" data-panel="right" class="open-panel">right</a></p>
-              </div>
+              <!--<div class="content-block">-->
+              <!--  <p>Panels: <a href="#" class="open-panel">left</a> and  -->
+              <!--  <a href="#" data-panel="right" class="open-panel">right</a></p>-->
+              <!--</div>-->
             </div>
           </div>
         </div>
@@ -245,12 +166,12 @@
               <div class="content-block">
                 <p>Contact your vet directly:</p>
               </div>
-              <p><a href="tel:8602145022" class="button">Call</a></p>
-              <p><a href="mailto:walter@conformlab.com" class="button">Email</a></p>
+              <p><a href="tel:8602145022" class="button callVet external">Call</a></p>
+              <p><a href="mailTo:walter@conformlab.com" class="button emailVet external">Email</a></p>
               <div class="content-block">
                 <p>Technical problem or question:</p>
               </div>
-              <p><a href="mailto:walter@conformlab.com" class="button">Email Support</a></p>
+              <p><a href="mailTo:support@myvetperks.com" class="button emailSupport external">Email Support</a></p>
               <!--<div class="list-block">-->
               <!--  <ul>-->
               <!--    <li><a href="about.html" class="item-link">-->
@@ -383,7 +304,7 @@
           <a href="#view-1" class="tab-link active"> <i class="fa fa-tachometer fa-lg"></i></a>
           <a href="#view-4" class="tab-link"> <i class="fa fa-gear fa-lg"></i></a>
           <a href="#view-2" class="tab-link"><i class="fa fa-envelope-o fa-lg"></i></a>
-          <a href="#" class="tab-link open-login-screen"> <i class="fa fa-sign-out fa-lg"></i></a>
+          <a href="#" class="tab-link logout"> <i class="fa fa-sign-out fa-lg"></i></a>
           </div>
       </div>
     </div>
