@@ -48,6 +48,12 @@ MVPUI.prototype = {
             $$(".splash").hide();
           }
         });
+      },
+      function(error){
+        MVPUI.prototype.app.alert("logged in user not found","");
+        MVPUI.prototype.activeUser = null;
+        Parse.User.logOut();
+        MVPUI.prototype.app.loginScreen();
       });
     }else{
       MVPUI.prototype.app.loginScreen();
@@ -342,6 +348,13 @@ MVPUI.prototype = {
       }
     });
   },
+  fnEmailCredentials: function () {
+    var username = "";
+    var password = "";
+    username = $$('.login-screen').find('input[name="username"]').val();
+    password = $$('.login-screen').find('input[name="password"]').val();
+    MVPUI.prototype.app.alert("enter email and send login info","");
+  },
   fnAddEventHandlers:function (){
       //login to app
     $$('.login-screen').find('.sign-in').on('click', mvpUI.fnGetLoginUser);
@@ -399,5 +412,9 @@ MVPUI.prototype = {
     });
     //logout
     $$('.tabbar-labels').find('.logout').on('click', mvpUI.fnLogout);
+    //get credentials
+    $$('.login-screen').find('.get-Credentials').on('click', mvpUI.fnEmailCredentials);
+    
+    
   }
 }

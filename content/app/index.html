@@ -26,17 +26,17 @@
               <ul class="identity">
                 <li class="item-content">
                   <div class="item-inner">
-                    <div class="item-title label">Username</div>
+                    <!--<div class="item-title label">Username</div>-->
                     <div class="item-input">
-                      <input type="text" name="username" placeholder="">
+                      <input class="login-input" type="text" name="username" placeholder="Username">
                     </div>
                   </div>
                 </li>
                 <li class="item-content">
                   <div class="item-inner">
-                    <div class="item-title label">Password</div>
+                    <!--<div class="item-title label">Password</div>-->
                     <div class="item-input">
-                      <input type="password" name="password" placeholder="">
+                      <input class="login-input" type="password" name="password" placeholder="Password">
                     </div>
                   </div>
                 </li>
@@ -45,7 +45,8 @@
             <div class="list-block login-buttons">
               <p><a href="#" class="button sign-in">log in</a></p>
               <p><a href="#" class="button log-in" style="display:none">back to log in</a></p>
-              <p><a href="#" class="button create-profile">sign up</a></p>
+              <p><a href="#" class="button get-Credentials">email login info</a></p>
+              <!--<p><a href="#" class="button create-profile">sign up</a></p>-->
               <p><a href="#" class="button send-sign-up" style="display:none">Create</a></p>
               <!--<div class="list-block-label">-->
               <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
@@ -157,7 +158,7 @@
         <!--</div>-->
         <div class="pages navbar-through">
           <div data-page="index-2" class="page">
-            <div class="page-content">
+            <div class="page-content contact-page">
               <div class="logo mvpSwipeElement">
                 <a>
         				  <img class="logo_image" src="" alt="Profile Picture">
@@ -166,28 +167,19 @@
               <div class="content-block">
                 <p>Contact your vet directly:</p>
               </div>
-              <p><a href="tel:8602145022" class="button callVet external">Call</a></p>
-              <p><a href="mailTo:walter@conformlab.com" class="button emailVet external">Email</a></p>
+              <div class="row">
+                <div class="col-33"><p><a href="tel:8602145022" class="button callVet external"><i class="fa fa-phone fa-3x"></i></a></p></div>
+                <div class="col-33"><p><a href="mailTo:walter@conformlab.com" class="button emailVet external"><i class="fa fa-envelope-o fa-3x"></i></a></p></div>
+                <div class="col-33"><p><a href="http://myvetperks.com" class="button vetWebsite external"><i class="fa fa-home fa-3x"></i></a></p></div>
+              </div>              
               <div class="content-block">
                 <p>Technical problem or question:</p>
               </div>
-              <p><a href="mailTo:support@myvetperks.com" class="button emailSupport external">Email Support</a></p>
-              <!--<div class="list-block">-->
-              <!--  <ul>-->
-              <!--    <li><a href="about.html" class="item-link">-->
-              <!--        <div class="item-content">-->
-              <!--          <div class="item-inner"> -->
-              <!--            <div class="item-title">About Us</div>-->
-              <!--          </div>-->
-              <!--        </div></a></li>-->
-              <!--    <li><a href="services.html" class="item-link">-->
-              <!--        <div class="item-content"> -->
-              <!--          <div class="item-inner">-->
-              <!--            <div class="item-title">Services</div>-->
-              <!--          </div>-->
-              <!--        </div></a></li>-->
-              <!--  </ul>-->
-              <!--</div>-->
+              <div class="row">
+                <div class="col-33"></div>
+                <div class="col-33"><p><a href="mailTo:support@myvetperks.com" class="button emailSupport external"><i class="fa fa-question-circle fa-4x"></i></a></p></div>
+                <div class="col-33"></div>
+              </div>
             </div>
           </div>
         </div>

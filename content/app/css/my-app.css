@@ -6,6 +6,17 @@
     margin:15px;
     text-align: center;
 }
+.contact-page .button{
+    height:60px;
+    margin:0px;
+    background:none;
+    border:none;
+    color:white;
+}
+
+input.login-input{
+    text-align:center;
+}
 .splash{
     position:absolute;
     left:0px;
