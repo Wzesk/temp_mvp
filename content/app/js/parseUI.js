@@ -91,12 +91,12 @@ MVPUI.prototype = {
     //update free items and count items
     var freebies = MVPUI.prototype.userData.get("gifts");
     for(var g = 0 ; g < freebies.length ; g++){
-      MVPUI.prototype.fnAddFree(freebies[g]);
+      if(freebies[g].count > 0){
+        MVPUI.prototype.fnAddFree(freebies[g]);
+      }
     }
     var counts = MVPUI.prototype.userData.get("countProducts");
-    for(var c = 0 ; c < counts.length ; c++){
-      MVPUI.prototype.fnAddCount(counts[c]);
-    }
+    MVPUI.prototype.fnAddCount(counts);
   },
   fnAddFree: function(free){
     var added = '<li class="item-content">'+
@@ -112,27 +112,30 @@ MVPUI.prototype = {
                 '</li>';    
     $$(".free_item_list").append(added);
   },
-  fnAddCount: function(count){
-    var ids = count.id.split("-");
+  fnAddCount: function(counts){
     var vDeals = MVPUI.prototype.userData.pvendor.get("activeDeals");
-    count.name = "no name";
     if(vDeals && vDeals.length > 0){
       for(var v = 0 ; v < vDeals.length ; v++){
-        if(vDeals[v].details.id == count.id){
-          count.name = vDeals[v].details.items.name;
+        var got = 0;
+        if(vDeals[v].status == "available" && vDeals[v].type == "count"){// vDeals[v].details.id == count.id){
+          for(var c = 0 ; c < counts.length ; c++){
+            if(vDeals[v].details.id == counts[c].id){
+              got = counts[c].count;
+            }
+          }
+          var togo = parseInt(vDeals[v].details.items.count)-got;
+          var added = '<li class="item-content">'+
+                      '  <div class="item-media">'+
+                      '    <i class="fa fa-paw fa-lg"></i>'+
+                      '  </div>'+
+                      '  <div class="item-inner">'+
+                      '    <div class="item-subtitle">'+ togo +' more '+ vDeals[v].details.items.name+'</div>'+
+                      '  </div>'+
+                      '</li>';
+          $$(".count_item_list").append(added);
         }
       }
     }
-    var togo = parseInt(count.redeemCount)-parseInt(count.count);
-    var added = '<li class="item-content">'+
-                '  <div class="item-media">'+
-                '    <i class="fa fa-paw fa-lg"></i>'+
-                '  </div>'+
-                '  <div class="item-inner">'+
-                '    <div class="item-subtitle">'+ 9 +' more '+ count.name+'</div>'+
-                '  </div>'+
-                '</li>';
-    $$(".count_item_list").append(added);
   },
   fnSetSavings: function(savings){
     if(savings.message){
@@ -353,7 +356,7 @@ MVPUI.prototype = {
     var password = "";
     username = $$('.login-screen').find('input[name="username"]').val();
     password = $$('.login-screen').find('input[name="password"]').val();
-    MVPUI.prototype.app.alert("enter email and send login info","");
+    MVPUI.prototype.app.alert("credentials email is not yet active","");
   },
   fnAddEventHandlers:function (){
       //login to app
