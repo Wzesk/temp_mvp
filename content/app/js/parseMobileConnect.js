@@ -70,7 +70,7 @@ ParseConnect.prototype = {
         var savings = 0;
         query.each(function(redemption){
             if(redemption){
-                savings = redemption.get("originalTotal")-redemption.get("newTotal");
+                savings += redemption.get("originalTotal")-redemption.get("newTotal");
             }
         }).then(function(res){
             myCallback(savings);

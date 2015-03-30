@@ -8,10 +8,13 @@
 }
 .contact-page .button{
     height:60px;
-    margin:0px;
-    background:none;
+    padding:10px;
+    margin:20px;
+    vertical-align:middle;
+    color:#2b3e50;
+    /*background:none;*/
     border:none;
-    color:white;
+    /*color:white;*/
 }
 
 input.login-input{
