@@ -1,6 +1,18 @@
 /*.myContent{*/
 /*    display:none;*/
 /*}*/
+.mvp-toolbar:before {
+    background:none;
+}
+.toolbar.mvp-toolbar{
+    height:60px;
+}
+.toolbar-inner.mvp-toolbar{
+    padding:10px;
+}
+.tab-link.mvp-tab{
+    padding:0px;
+}
 .logo{
     vertical-align: middle;
     margin:15px;

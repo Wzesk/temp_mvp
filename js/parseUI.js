@@ -19,7 +19,7 @@ MVPUI.prototype = {
     //set global location data
     mvpLocation = "mvp";
     mvpLocationData = null;
-    
+
     ////load location data and add event handlers
     MVPUI.prototype.fnLoadWithLocationData();
     MVPUI.prototype.fnAddEventHandlers();
