@@ -303,11 +303,18 @@ MVPUI.prototype = {
     }
   },
   fnResetPassword: function () {
-    var resetEmail = $$("#mvpResetEmail").val();
-    pCon.tryPasswordReset(resetEmail, function(message){
-      MVPUI.prototype.app.alert(message,"");
-      location.reload();
-    });
+      var resetEmail = $$("#mvpResetEmail").val();
+      if (resetEmail && resetEmail.length > 4) {
+          pCon.tryPasswordReset(resetEmail, function (message) {
+              MVPUI.prototype.app.alert(message, "");
+              $$('.identity>li').show();
+              $$('.log-in').hide(); $$('.reset-password').hide();
+              $$('.sign-in').show(); $$('.get-Credentials').show();
+              $$('.login-screen').find('.id-email').remove();
+          });
+      } else {
+          MVPUI.prototype.app.alert("not a valid email address", "");
+      }
   },
   fnCheckUser: function () {
     pCon.checkLogin(function(message){MVPUI.prototype.app.alert(message,"");});
@@ -351,15 +358,8 @@ MVPUI.prototype = {
       }
     });
   },
-  fnEmailCredentials: function () {
-    var username = "";
-    var password = "";
-    username = $$('.login-screen').find('input[name="username"]').val();
-    password = $$('.login-screen').find('input[name="password"]').val();
-    MVPUI.prototype.app.alert("credentials email is not yet active","");
-  },
   fnAddEventHandlers:function (){
-      //login to app
+    //login to app
     $$('.login-screen').find('.sign-in').on('click', mvpUI.fnGetLoginUser);
     //create a new user/customer
     $$('.login-screen').find('.send-sign-up').on('click', mvpUI.fnGetNewUser);
@@ -403,20 +403,41 @@ MVPUI.prototype = {
         $$('.log-in').show();$$('.send-sign-up').show();
         $$('.create-profile').hide();$$('.sign-in').hide();
     });
+
+    //goto email password
+    $$('.login-screen').find('.get-Credentials').on('click', function () {
+        $$('.identity>li').hide();
+
+        //$$('input[name="username"]').hide(); $$('input[name="password"]').hide();
+        $$('.identity').append('<li class="item-content id-email">' +
+                            '  <div class="item-inner">' +
+                            '    <div class="item-input">' +
+                            '      <input class="login-input" type="email" name="email" placeholder="email address">' +
+                            '    </div>' +
+                            '  </div>');
+        $$('.log-in').show(); $$('.reset-password').show();
+        $$('.get-Credentials').hide(); $$('.sign-in').hide();
+    });
+    //goto reset password
+    $$('.login-screen').find('.reset-password').on('click', mvpUI.fnResetPassword);
+ 
     //goto login
     $$('.login-screen').find('.log-in').on('click', function () {
-        $$('.log-in').hide();$$('.send-sign-up').hide();
-        $$('.create-profile').show();$$('.sign-in').show();
-        $$('.login-screen').find('.id-firstName').remove();
-        $$('.login-screen').find('.id-lastName').remove();
+        $$('.identity>li').show();
+
+        $$('.log-in').hide(); $$('.reset-password').hide();
+        $$('.sign-in').show(); $$('.get-Credentials').show();
         $$('.login-screen').find('.id-email').remove();
-        $$('.login-screen').find('.id-repeatPassword').remove();
-        $$('.login-screen').find('.id-vetCode').remove();
+
+        //$$('.send-sign-up').hide();$$('.create-profile').show();
+        //$$('.login-screen').find('.id-firstName').remove();
+        //$$('.login-screen').find('.id-lastName').remove();
+        //$$('.login-screen').find('.id-email').remove();
+        //$$('.login-screen').find('.id-repeatPassword').remove();
+        //$$('.login-screen').find('.id-vetCode').remove();
     });
     //logout
     $$('.tabbar-labels').find('.logout').on('click', mvpUI.fnLogout);
-    //get credentials
-    $$('.login-screen').find('.get-Credentials').on('click', mvpUI.fnEmailCredentials);
     
     
   }
