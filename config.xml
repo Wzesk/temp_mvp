@@ -3,6 +3,7 @@
   <description>Track and manage your veterinary reward points as well as all eligible promotions and offers from your veterinarian.</description>
   <author href="http://myvetperks.com" email="info@myvetperks.com">my vet perks LLC</author>
   <content src="index.html"/>
+  <preference name="phonegap-version" value="2.7.0" />
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
   <preference name="target-device" value="handset"/>
