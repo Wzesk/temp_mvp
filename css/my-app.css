@@ -18,10 +18,37 @@
     margin:15px;
     text-align: center;
 }
+.b-right{
+    margin:0px;
+    float:left;
+}
+.b-left{
+    margin:0px;
+    float:right;
+}
+.contact-page i {
+    margin-top:8px;
+}
+.callVet{
+    background:white;
+}
+.emailVet{
+    background:rgb(240,215,75);
+}
+.vetWebsite{
+    background:rgb(46,190,223);
+}
+.emailSupport{
+    background:rgb(125,189,66);
+}
+.button{
+    /*margin:10px;
+    background:white;*/
+}
 .contact-page .button{
     height:60px;
-    padding:10px;
-    margin:20px;
+    width:60px;
+    margin:40px;
     vertical-align:middle;
     color:#2b3e50;
     /*background:none;*/
@@ -47,10 +74,6 @@ body, .page,.navbar{
 }
 .content-block-title, .content-block{
     color:white;
-}
-.button{
-    margin:10px;
-    background:white;
 }
 .card{
     color:rgb(153, 153, 153);
