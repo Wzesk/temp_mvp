@@ -8,9 +8,12 @@ MVPUI.prototype = {
   fnInitializeScreens: function(){
     // Export selectors engine
     $$ = Dom7;
-    //connected to dev server
-    appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
-    jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";    
+    ////connected to dev server
+    //appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
+    //jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
+    //connected to prod server
+    appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
+    jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
     //connect to parse
     console.log( "loaded" );
     Parse.initialize(appId, jKey);

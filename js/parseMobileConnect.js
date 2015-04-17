@@ -44,6 +44,19 @@ ParseConnect.prototype = {
             if(result && result.length > 0){
                 customer.pvendor = result[0];
             }
+            /////////////////////////////////////////////////////////////grabbing notifications here.
+            var vID = customer.get("vendor").id;
+            var NVend = Parse.Object.extend("Notification");////////////need to capitalize notification
+            var nquery = new Parse.Query(NVend);
+            nquery.equalTo("vendor", {
+                __type: "Pointer",
+                className: "Vendor",
+                objectId: vID
+            });
+            return nquery.find();
+        }).then(function (notifications) {
+            customer.notifications = notifications;
+            /////////////////////////////////////////////////////////////
             myCallback(customer);
         },function(error){
             myCallback(error);
