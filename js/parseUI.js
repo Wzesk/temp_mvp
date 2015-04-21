@@ -27,7 +27,9 @@ MVPUI.prototype = {
     MVPUI.prototype.fnLoadWithLocationData();
     MVPUI.prototype.fnAddEventHandlers();
   },
-  fnLoadWithLocationData: function(){
+  fnLoadWithLocationData: function () {
+      MVPUI.prototype.app.showPreloader('loading...');
+
     MVPUI.prototype.activeUser = Parse.User.current();
     if(MVPUI.prototype.activeUser != null){
       MVPUI.prototype.activeUser.fetch().then(function(theuser){
@@ -46,9 +48,10 @@ MVPUI.prototype = {
             var view3 = MVPUI.prototype.app.addView('#view-3');
             var view4 = MVPUI.prototype.app.addView('#view-4');
             var view4 = MVPUI.prototype.app.addView('#view-4');
-            
+
             MVPUI.prototype.fnUpdateView();
             $$(".splash").hide();
+            MVPUI.prototype.app.hidePreloader();
           }
         });
       },
@@ -57,12 +60,17 @@ MVPUI.prototype = {
         MVPUI.prototype.activeUser = null;
         Parse.User.logOut();
         MVPUI.prototype.app.loginScreen();
+        MVPUI.prototype.app.hidePreloader();
       });
     }else{
-      MVPUI.prototype.app.loginScreen();
+        MVPUI.prototype.app.loginScreen();
+        MVPUI.prototype.app.hidePreloader();
     }
   },
-  fnUpdateView: function(){
+  fnUpdateView: function () {
+    $$(".count_item_list>li").remove();
+    $$(".free_item_list>li").remove();
+
     pCon.calculateSavings(MVPUI.prototype.userData,MVPUI.prototype.fnSetSavings);
     
     $$(".vet_name").text(MVPUI.prototype.userData.pvendor.get("name"));
@@ -163,7 +171,6 @@ MVPUI.prototype = {
           $$('.login-screen').find('input[name="username"]').val("");
           $$('.login-screen').find('input[name="password"]').val("");
           mvpUI.app.closeModal('.login-screen');
-          MVPUI.prototype.fnLoadWithLocationData();
         }else{
           $$('.login-screen').find('input[name="username"]').val("");
           $$('.login-screen').find('input[name="password"]').val("");
@@ -441,7 +448,11 @@ MVPUI.prototype = {
     });
     //logout
     $$('.tabbar-labels').find('.logout').on('click', mvpUI.fnLogout);
+      //reload
+    $$('.tabbar-labels').find('.reload').on('click', mvpUI.fnLoadWithLocationData);
     
-    
+    $$('.login-screen').on('closed', function () {
+        MVPUI.prototype.fnLoadWithLocationData();
+    });
   }
 }
