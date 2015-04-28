@@ -95,8 +95,12 @@ MVPUI.prototype = {
       phone = 1111111111;
     }
     phone = phone.replace("(","").replace(")","").replace("-","").replace(".","").replace(" ","");
-    $$(".callVet").attr("href","tel:"+phone);
-    
+    $$(".callVet").attr("href", "tel:" + phone);
+
+    var homePage = MVPUI.prototype.userData.pvendor.get("url");
+    if (!homePage) { homePage = "http://myvetperks.com";}
+    $$(".vetWebsite").attr("href", homePage);
+
     $$(".logo_image").attr("src","https://i.embed.ly/1/display/resize?url="+MVPUI.prototype.userData.pvendor.get("logo").url()+"&key=b4b59d4802eb44b487eae8132351a634&width=150&height=150");
   
     //update free items and count items
