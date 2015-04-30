@@ -45,14 +45,16 @@ ParseConnect.prototype = {
                 customer.pvendor = result[0];
             }
             /////////////////////////////////////////////////////////////grabbing notifications here.
+            var d = new Date();
+            var todaysDate = new Date(d.getTime());
             var vID = customer.get("vendor").id;
-            var NVend = Parse.Object.extend("Notification");////////////need to capitalize notification
+            var NVend = Parse.Object.extend("Notification");
             var nquery = new Parse.Query(NVend);
             nquery.equalTo("vendor", {
                 __type: "Pointer",
                 className: "Vendor",
                 objectId: vID
-            });
+            }).greaterThanOrEqualTo("expire", todaysDate);
             return nquery.find();
         }).then(function (notifications) {
             customer.notifications = notifications;

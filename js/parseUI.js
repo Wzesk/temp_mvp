@@ -70,6 +70,7 @@ MVPUI.prototype = {
   fnUpdateView: function () {
     $$(".count_item_list>li").remove();
     $$(".free_item_list>li").remove();
+    $$(".notification-list>li").off("click").remove();
 
     pCon.calculateSavings(MVPUI.prototype.userData,MVPUI.prototype.fnSetSavings);
     
@@ -112,6 +113,21 @@ MVPUI.prototype = {
     }
     var counts = MVPUI.prototype.userData.get("countProducts");
     MVPUI.prototype.fnAddCount(counts);
+
+    
+    for (var g = 0 ; g < MVPUI.prototype.userData.notifications.length ; g++) {
+        MVPUI.prototype.fnAddNotification(MVPUI.prototype.userData.notifications[g]);
+    }
+    $$('.notification-item').on('click', function (e) {
+        var index = $$(e.currentTarget).index();
+        MVPUI.prototype.app.alert(MVPUI.prototype.userData.notifications[index].attributes.content, MVPUI.prototype.userData.notifications[index].attributes.title, function () {
+
+        });
+        //MVPUI.prototype.app.addNotification({
+        //    title: MVPUI.prototype.userData.notifications[index].attributes.title,
+        //    message: MVPUI.prototype.userData.notifications[index].attributes.content
+        //});
+    });
   },
   fnAddFree: function(free){
     var added = '<li class="item-content">'+
@@ -126,6 +142,19 @@ MVPUI.prototype = {
                 '  </div>'+
                 '</li>';    
     $$(".free_item_list").append(added);
+  },
+  fnAddNotification: function (notification) {
+      var added = '<li class="item-content notification-item">' +
+                  //'<div class="item-media"><i class="fa fa-comment"></i></div>' +
+                  '  <div class="item-inner">' +
+                  '    <div class="item-title-row">' +
+                  '      <div class="item-title">' + notification.attributes.title + '</div>' +
+                  '    </div>' +
+                  '    <div class="item-after">' + '' + '</div>' +
+                  '  </div>' +
+                  '</li>';
+
+      $$(".notification-list").append(added);
   },
   fnAddCount: function(counts){
     var vDeals = MVPUI.prototype.userData.pvendor.get("activeDeals");
@@ -458,5 +487,15 @@ MVPUI.prototype = {
     $$('.login-screen').on('closed', function () {
         MVPUI.prototype.fnLoadWithLocationData();
     });
+    //$$(document).on('click', '.notification-item', function (e) {
+    //            var message = $$(e.target).parents('li').attr("id");
+    //            //MVPUI.prototype.app.alert(message,'title', function () {
+
+    //            //});
+    //            MVPUI.prototype.app.addNotification({
+    //                title: 'Framework7',
+    //                message: 'message'
+    //            });
+    //});
   }
 }
