@@ -1,6 +1,9 @@
 /*.myContent{*/
 /*    display:none;*/
 /*}*/
+.notification-item{
+    color:#2b3e50;
+}
 .mvp-toolbar:before {
     background:none;
 }
