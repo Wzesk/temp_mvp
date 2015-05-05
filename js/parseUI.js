@@ -128,6 +128,14 @@ MVPUI.prototype = {
         //    message: MVPUI.prototype.userData.notifications[index].attributes.content
         //});
     });
+
+    ///////////////updating notification count
+    if (MVPUI.prototype.userData.notifications.length > 0) {
+        $$(".notification-count").show().text(MVPUI.prototype.userData.notifications.length);
+    } else {
+        $$(".notification-count").hide().text("0");
+    }
+    ////////////
   },
   fnAddFree: function(free){
     var added = '<li class="item-content">'+
