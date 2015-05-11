@@ -180,11 +180,15 @@ MVPUI.prototype = {
                       '  <div class="item-media">'+
                       '    <i class="fa fa-paw fa-lg"></i>'+
                       '  </div>'+
-                      '  <div class="item-inner">'+
-                      '    <div class="item-subtitle">'+ togo +' more '+ vDeals[v].details.items.name+'</div>'+
+                      '  <div class="item-inner">' +
+                      '    <div class="item-title-row">' +
+                      '      <div class="item-title">' + vDeals[v].details.items.name + '</div>' +
+                      '    </div>' +
+                      '    <div class="item-subtitle">'+ togo +' more to go</div>'+
                       '  </div>'+
                       '</li>';
-          $$(".count_item_list").append(added);
+          //$$(".count_item_list").append(added);
+          $$(".free_item_list").append(added);
         }
       }
     }
