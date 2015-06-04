@@ -107,8 +107,17 @@ MVPUI.prototype = {
     //update free items and count items
     var freebies = MVPUI.prototype.userData.get("gifts");
     for(var g = 0 ; g < freebies.length ; g++){
-      if(freebies[g].count > 0){
-        MVPUI.prototype.fnAddFree(freebies[g]);
+        if (freebies[g].count > 0) {
+            var active = true;
+            if (freebies[g].expiration && freebies[g].expiration instanceof Date) {
+                var today = new Date();
+                if (today > freebies[g].expiration) {
+                   active = false;
+                }
+            } 
+            if (active) {
+                MVPUI.prototype.fnAddFree(freebies[g]);
+            }
       }
     }
     var counts = MVPUI.prototype.userData.get("countProducts");
