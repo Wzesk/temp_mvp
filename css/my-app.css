@@ -1,3 +1,9 @@
+.list-block .deal-title{
+     white-space:normal;
+     word-wrap: break-word;
+}
+
+
 
 .notification-count{
   position:absolute;

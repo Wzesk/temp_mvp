@@ -153,9 +153,9 @@ MVPUI.prototype = {
                 '  </div>'+
                 '  <div class="item-inner">'+
                 '    <div class="item-title-row">'+
-                '      <div class="item-title">'+free.count+' '+free.name+'</div>'+
+                '      <div class="item-title deal-title">'+free.count+' '+free.name+'</div>'+
                 '    </div>'+
-                '    <div class="item-subtitle">'+free.description+'</div>'+
+                //'    <div class="item-subtitle">'+free.description+'</div>'+
                 '  </div>'+
                 '</li>';    
     $$(".free_item_list").append(added);
