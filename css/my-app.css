@@ -59,10 +59,22 @@
     background:white;
 }
 .emailVet{
-    background:rgb(240,215,75);
+    background:white;/*background:rgb(240,215,75);*/
 }
 .vetWebsite{
-    background:rgb(46,190,223);
+    background:white;/*background:rgb(46,190,223);*/
+}
+.getAppointment{
+    background:white;/*background:rgb(46,190,223);*/
+}
+.getFood{
+    background:white;/*background:rgb(46,190,223);*/
+}
+.getRX{
+    background:white;/*background:rgb(46,190,223);*/
+}
+.panel-left{
+    background:#C0C0C0;
 }
 .emailSupport{
     background:rgb(125,189,66);

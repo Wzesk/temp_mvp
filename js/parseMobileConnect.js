@@ -93,6 +93,10 @@ ParseConnect.prototype = {
             myCallback(error);
         });
     },
+
+    submitServiceRequest: function(data){
+        alert(JSON.stringify(data));
+    },
     /**************************************************************************************************
     user management functions
     **************************************************************************************************/

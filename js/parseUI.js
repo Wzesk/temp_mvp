@@ -422,6 +422,15 @@ MVPUI.prototype = {
       }
     });
   },
+  fnCreateHiddenField: function (type) {
+      return '<li hidden><div class="item-content"><div class="item-inner"><div class="item-input"><input type="text" name="requestType" value="' + type + '"></div></div></div></li>';
+  },
+  fnCreateFormField: function(name,placeholder){
+      return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="text" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
+  },
+  fnCreateDateField: function(name,placeholder){
+      return '<li><div class="item-content"><div class="item-media"><i class="icon icon-form-calendar"></i></div><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
+  },
   fnAddEventHandlers:function (){
     //login to app
     $$('.login-screen').find('.sign-in').on('click', mvpUI.fnGetLoginUser);
@@ -517,6 +526,48 @@ MVPUI.prototype = {
     //                title: 'Framework7',
     //                message: 'message'
     //            });
-    //});
+      //});
+    $$('.form-to-json').on('click', function () {
+        var formData = MVPUI.prototype.app.formToJSON('#my-form');
+        //send data to parse
+        pCon.submitServiceRequest(formData);
+        MVPUI.prototype.app.closePanel("left");
+    });
+    $$('.getAppointment').on('click', function () {
+        //setup fields
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("appointment"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("petType", "pet type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("petName", "pet name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("symptoms", "symptoms"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
+
+        MVPUI.prototype.app.openPanel("left");
+    });
+    $$('.getFood').on('click', function () {
+        //setup fields
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("food"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("foodType", "food type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("quantity", "quantity"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+
+        MVPUI.prototype.app.openPanel("left");
+    });
+    $$('.getRX').on('click', function () {
+        //setup fields
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("rx"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("rxType", "medicine type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+
+        MVPUI.prototype.app.openPanel("left");
+    });
+
+    $$('.panel-left').on('closed', function () {
+        //setup fields
+        $$(".left-panel-form-fields>li").remove();
+    });
   }
 }
