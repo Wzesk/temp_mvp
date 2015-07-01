@@ -74,7 +74,13 @@
     background:white;/*background:rgb(46,190,223);*/
 }
 .panel-left{
-    background:#C0C0C0;
+    background:white;
+}
+.panel-left .side-panel-title{
+    color:blue;
+}
+.panel-left .item-content{
+    padding-right:15px;
 }
 .emailSupport{
     background:rgb(125,189,66);

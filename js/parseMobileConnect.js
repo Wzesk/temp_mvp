@@ -94,8 +94,18 @@ ParseConnect.prototype = {
         });
     },
 
-    submitServiceRequest: function(data){
-        alert(JSON.stringify(data));
+    submitServiceRequest: function (data) {
+        //alert(JSON.stringify(data));
+        
+        Parse.Cloud.run('appFormEmail', data, {
+            success: function (result) {
+                alert(result);
+            },
+            error: function (error) {
+                alert(result);
+            }
+        });
+
     },
     /**************************************************************************************************
     user management functions

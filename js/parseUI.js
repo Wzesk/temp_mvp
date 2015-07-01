@@ -9,11 +9,11 @@ MVPUI.prototype = {
     // Export selectors engine
     $$ = Dom7;
     ////connected to dev server
-    //appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
-    //jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
+    appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
+    jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
     //connected to prod server
-    appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
-    jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
+    //appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
+    //jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
     //connect to parse
     console.log( "loaded" );
     Parse.initialize(appId, jKey);
@@ -428,8 +428,8 @@ MVPUI.prototype = {
   fnCreateFormField: function(name,placeholder){
       return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="text" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
   },
-  fnCreateDateField: function(name,placeholder){
-      return '<li><div class="item-content"><div class="item-media"><i class="icon icon-form-calendar"></i></div><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
+  fnCreateDateField: function (name, placeholder) {
+      return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
   },
   fnAddEventHandlers:function (){
     //login to app
@@ -529,38 +529,42 @@ MVPUI.prototype = {
       //});
     $$('.form-to-json').on('click', function () {
         var formData = MVPUI.prototype.app.formToJSON('#my-form');
+
+        formData.customer = MVPUI.prototype.userData.id;
         //send data to parse
         pCon.submitServiceRequest(formData);
         MVPUI.prototype.app.closePanel("left");
     });
     $$('.getAppointment').on('click', function () {
         //setup fields
+        $$(".side-panel-title").text("Request an Appointment");
         $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("appointment"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("petType", "pet type"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("petName", "pet name"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("symptoms", "symptoms"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "pet type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "symptoms"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
 
         MVPUI.prototype.app.openPanel("left");
     });
     $$('.getFood').on('click', function () {
         //setup fields
+        $$(".side-panel-title").text("Order Food");
         $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("food"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("foodType", "food type"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("quantity", "quantity"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "food type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
 
         MVPUI.prototype.app.openPanel("left");
     });
     $$('.getRX').on('click', function () {
         //setup fields
+        $$(".side-panel-title").text("Order RX");
         $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("rx"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("name", "your name"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("rxType", "medicine type"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contactNumber"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "medicine type"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
 
         MVPUI.prototype.app.openPanel("left");
     });
