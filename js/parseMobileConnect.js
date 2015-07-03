@@ -99,10 +99,10 @@ ParseConnect.prototype = {
         
         Parse.Cloud.run('appFormEmail', data, {
             success: function (result) {
-                alert(result);
+                mvpUI.app.alert(result, "");
             },
             error: function (error) {
-                alert(result);
+                mvpUI.app.alert(result, "");
             }
         });
 

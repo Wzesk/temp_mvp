@@ -52,27 +52,41 @@
     margin:0px;
     float:right;
 }
-.contact-page i {
-    margin-top:8px;
-}
-.callVet{
+.optional-button{
     background:white;
 }
-.emailVet{
-    background:white;/*background:rgb(240,215,75);*/
+.request-button{
+    background:rgb(240,215,75);
 }
-.vetWebsite{
-    background:white;/*background:rgb(46,190,223);*/
+.contact-button{
+    background:rgb(46,190,223);
 }
-.getAppointment{
-    background:white;/*background:rgb(46,190,223);*/
+.contact-page .button{
+    margin:20px;
+    height:50px;
+    vertical-align:central;
+    /*width:60px;
+    margin:40px;*/
+    color:#2b3e50;
+    border:none;
+    /*background:white;*/
 }
-.getFood{
-    background:white;/*background:rgb(46,190,223);*/
+.contact-page .button i{
+    margin-right:20px;
+    margin-left:20px;
+    margin-top:8px;
+    float:left;
 }
-.getRX{
-    background:white;/*background:rgb(46,190,223);*/
+.contact-page .button span{
+    margin-right:20px;
+    margin-top:6px;
+    float:right;
+    font-size:larger;
 }
+
+
+
+
 .panel-left{
     background:white;
 }
@@ -82,23 +96,7 @@
 .panel-left .item-content{
     padding-right:15px;
 }
-.emailSupport{
-    background:rgb(125,189,66);
-}
-.button{
-    /*margin:10px;
-    background:white;*/
-}
-.contact-page .button{
-    height:60px;
-    width:60px;
-    margin:40px;
-    vertical-align:middle;
-    color:#2b3e50;
-    /*background:none;*/
-    border:none;
-    /*color:white;*/
-}
+
 
 input.login-input{
     text-align:center;
