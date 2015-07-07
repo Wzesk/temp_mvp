@@ -456,8 +456,14 @@ MVPUI.prototype = {
   fnCreateDateField: function (name, placeholder) {
       return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
   },
-  fnCreateSelectTime: function () {
-      return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><select name="time"><option>Morning</option><option>Afternoon</option></select></div></div></div></li>';
+  fnCreateFormSelect: function (name, list) {
+      var listHTML = '<li><div class="item-content"><div class="item-inner"><div class="item-input"><select name="';
+      listHTML += name + '">';
+      for (i = 0 ; i < list.length ; i++) {
+          listHTML += '<option>'+list[i]+'</option>';
+      }
+      listHTML += '</select></div></div></div></li>';
+      return listHTML;
   },
   fnAddEventHandlers:function (){
     //login to app
@@ -572,44 +578,49 @@ MVPUI.prototype = {
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data3", "pet name"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "symptoms"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateSelectTime());
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
 
         MVPUI.prototype.app.openPanel("left");
     });
-    $$('.getPickup').on('click', function () {
+    //$$('.getPickup').on('click', function () {
+    //    //setup fields
+    //    $$(".side-panel-title").text("Request Food or RX Pickup");
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("pickup"));
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "product"));
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
+    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
+
+    //    MVPUI.prototype.app.openPanel("left");
+    //});
+    $$('.getFood').on('click', function () {
         //setup fields
-        $$(".side-panel-title").text("Request Food or RX Pickup");
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("pickup"));
+        $$(".side-panel-title").text("Request Food Pickup");
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("food pickup"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "product"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("data3", ["dog food (wet)", "dog food (dry)", "cat food (wet)", "cat food (dry)","other"]));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "food name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity/size"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
+
+
+        MVPUI.prototype.app.openPanel("left");
+    });
+    $$('.getRX').on('click', function () {
+        //setup fields
+        $$(".side-panel-title").text("Request RX Pickup");
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("rx pickup"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data3", "pet name"));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "medicine name"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateSelectTime());
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
 
         MVPUI.prototype.app.openPanel("left");
     });
-    //$$('.getFood').on('click', function () {
-    //    //setup fields
-    //    $$(".side-panel-title").text("Request Food Pickup");
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("food pickup"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "food type"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-
-    //    MVPUI.prototype.app.openPanel("left");
-    //});
-    //$$('.getRX').on('click', function () {
-    //    //setup fields
-    //    $$(".side-panel-title").text("Request RX Pickup");
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("rx pickup"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "medicine type"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
-    //    $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-
-    //    MVPUI.prototype.app.openPanel("left");
-    //});
 
     $$('.panel-left').on('closed', function () {
         //setup fields
