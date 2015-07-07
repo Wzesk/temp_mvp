@@ -9,11 +9,11 @@ MVPUI.prototype = {
     // Export selectors engine
     $$ = Dom7;
     ////connected to dev server
-    appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
-    jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
+    //appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
+    //jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
     //connected to prod server
-    //appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
-    //jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
+    appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
+    jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
     //connect to parse
     console.log( "loaded" );
     Parse.initialize(appId, jKey);
@@ -155,17 +155,17 @@ MVPUI.prototype = {
       $$(".facebook-holder>p").remove();
       $$(".online-store-holder>p").remove();
       $$(".pet-portal-holder>p").remove();
-      if (vet.get("facebook") && vet.get("facebook").length > 1) {
+      if (vet.get("facebook") && vet.get("facebook").length > 1 && vet.get("facebook") != "none") {
           $$(".facebook-holder").append(
                '<p><a href="' + vet.get("facebook") + '" class="button button-big optional-button external"><i class="fa fa-facebook fa-2x"></i><span>visit us on facebook</span></a></p>'
           );
       }
-      if (vet.get("onlineStore") && vet.get("onlineStore").length > 1) {
+      if (vet.get("onlineStore") && vet.get("onlineStore").length > 1 && vet.get("onlineStore") != "none") {
           $$(".online-store-holder").append(
                '<p><a href="' + vet.get("onlineStore") + '" class="button button-big optional-button external"><i class="fa fa-shopping-cart fa-2x"></i><span>visit our store</span></a></p>'
           );
       }
-      if (vet.get("petPortal") && vet.get("petPortal").length > 1) {
+      if (vet.get("petPortal") && vet.get("petPortal").length > 1 && vet.get("petPortal") != "none") {
           $$(".pet-Portal").append(
                '<p><a href="' + vet.get("petPortal") + '" class="button button-big optional-button external"><i class="fa fa-heart fa-2x"></i><span>Pet Portal</span></a></p>'
           );
