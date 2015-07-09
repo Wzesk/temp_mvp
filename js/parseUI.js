@@ -166,7 +166,7 @@ MVPUI.prototype = {
           );
       }
       if (vet.get("petPortal") && vet.get("petPortal").length > 1 && vet.get("petPortal") != "none") {
-          $$(".pet-Portal").append(
+          $$(".pet-portal").append(
                '<p><a href="' + vet.get("petPortal") + '" class="button button-big optional-button external"><i class="fa fa-heart fa-2x"></i><span>Pet Portal</span></a></p>'
           );
       }
