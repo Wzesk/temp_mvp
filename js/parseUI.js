@@ -8,12 +8,12 @@ MVPUI.prototype = {
   fnInitializeScreens: function(){
     // Export selectors engine
     $$ = Dom7;
-    ////connected to dev server
-    //appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
-    //jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
-    //connected to prod server
-    appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
-    jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
+    //connected to dev server
+    appId = "Lf7TQ7BXpyyYTYAh5fNemLTyn2cCKQ2T8DoHgI9a";
+    jKey = "W2Xio1MH57kZX6eHyJ6EIgap8aNS0XhF2UpaIK8f";
+    ////connected to prod server
+    //appId = "sYoumrG3T28Up1ktc4ntIF7BMHC1R1oQkVL1JQKP";
+    //jKey = "JBsBcIEaZ2d1QHGibVi94fDDlxh2KT4boFlEGejH";
     //connect to parse
     console.log( "loaded" );
     Parse.initialize(appId, jKey);
@@ -454,16 +454,31 @@ MVPUI.prototype = {
       return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="text" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
   },
   fnCreateDateField: function (name, placeholder) {
-      return '<li><div class="item-content"><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
+      var label = '<div class="item-title label side-label">preferred date:</div>';
+      return '<li>' + label + '<div class="item-content"><div class="item-inner"><div class="item-input"><input type="date" name="' + name + '" placeholder="' + placeholder + '"></div></div></div></li>';
   },
-  fnCreateFormSelect: function (name, list) {
-      var listHTML = '<li><div class="item-content"><div class="item-inner"><div class="item-input"><select name="';
+  fnCreateFormSelect: function (name, list,label) {
+      var listHTML = '<li>' + label + '<div class="item-content"><div class="item-inner"><div class="item-input"><select name="';
       listHTML += name + '">';
       for (i = 0 ; i < list.length ; i++) {
           listHTML += '<option>'+list[i]+'</option>';
       }
       listHTML += '</select></div></div></div></li>';
       return listHTML;
+  },
+  fnCreateFormNotes: function () {
+      var textArea = '<li class="align-top">' +
+      '<div class="item-title label side-label">notes:</div>'+
+      '<div class="item-content">' +
+        '<div class="item-inner">' +
+          '<div class="item-title label">Textarea</div>' +
+          '<div class="item-input">' +
+              '<textarea name="note"></textarea>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</li>';
+    return  textArea;
   },
   fnAddEventHandlers:function (){
     //login to app
@@ -578,7 +593,8 @@ MVPUI.prototype = {
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data3", "pet name"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "symptoms"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"], '<div class="item-title label side-label">preferred time:</div>'));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormNotes());
 
         MVPUI.prototype.app.openPanel("left");
     });
@@ -599,11 +615,12 @@ MVPUI.prototype = {
         $$(".side-panel-title").text("Request Food Pickup");
         $$(".left-panel-form-fields").append(mvpUI.fnCreateHiddenField("food pickup"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("phone", "contact number"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("data3", ["dog food (wet)", "dog food (dry)", "cat food (wet)", "cat food (dry)","other"]));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("data3", ["dog food (wet)", "dog food (dry)", "cat food (wet)", "cat food (dry)", "other"], ''));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "food name"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity/size"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"], '<div class="item-title label side-label">preferred time:</div>'));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormNotes());
 
 
         MVPUI.prototype.app.openPanel("left");
@@ -617,7 +634,8 @@ MVPUI.prototype = {
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data1", "medicine name"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateFormField("data2", "quantity"));
         $$(".left-panel-form-fields").append(mvpUI.fnCreateDateField("day", "appointment day"));
-        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"]));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormSelect("time", ["morning", "afternoon", "evening"], '<div class="item-title label side-label">preferred time:</div>'));
+        $$(".left-panel-form-fields").append(mvpUI.fnCreateFormNotes());
 
         MVPUI.prototype.app.openPanel("left");
     });
