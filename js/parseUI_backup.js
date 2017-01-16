@@ -17,7 +17,6 @@ MVPUI.prototype = {
     //connect to parse
     console.log( "loaded" );
     Parse.initialize(appId, jKey);
-    Parse.serverURL = 'https://api.mvp.vet';
     console.log( "parse connection initialized" );
     
     //set global location data
