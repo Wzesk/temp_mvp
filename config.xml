@@ -4,8 +4,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.mvp.mvpmobile"
-        version   = "0.1.7"
-        versionCode="108" >
+        version   = "0.1.8"
+        versionCode="109" >
 
   <name>my vet perks</name>
 
@@ -65,9 +65,6 @@
   <plugin name="cordova-plugin-device-motion" />
   <plugin name="cordova-plugin-device-orientation" />
   <plugin name="cordova-plugin-dialogs" />
-  <plugin name="cordova-plugin-file" />
-  <plugin name="cordova-plugin-file-transfer" />
-  <plugin name="cordova-plugin-globalization" />
   <plugin name="cordova-plugin-inappbrowser" />
   <plugin name="cordova-plugin-network-information" />
   <plugin name="cordova-plugin-splashscreen" />
