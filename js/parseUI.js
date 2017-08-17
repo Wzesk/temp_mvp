@@ -103,7 +103,8 @@ MVPUI.prototype = {
     if (!homePage) { homePage = "http://myvetperks.com";}
     $$(".vetWebsite").attr("href", homePage);
 
-    $$(".logo_image").attr("src","https://i.embed.ly/1/display/resize?url="+MVPUI.prototype.userData.pvendor.get("logo").url()+"&key=b4b59d4802eb44b487eae8132351a634&width=150&height=150");
+    $$(".logo_image").attr("src",MVPUI.prototype.userData.pvendor.get("logo").url());
+    $$(".logo_image").attr("style","max-height: 200px;");
   
     //update free items and count items
     var freebies = MVPUI.prototype.userData.get("gifts");
