@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mvp.mvpmobile" version="0.1.7">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.mvp.mvpmobile" versionCode = "110" version="0.1.8">
   <name>my vet perks</name>
   <description>Track and manage your veterinary reward points as well as all eligible promotions and offers from your veterinarian.</description>
   <author href="http://myvetperks.com" email="info@myvetperks.com">my vet perks LLC</author>
